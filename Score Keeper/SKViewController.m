@@ -33,7 +33,7 @@ int numberOfCells = 3;
     CGFloat scrollExtension = self.scoreLabels.count * heightOfScoreBlock;
     
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, topMargin, self.view.frame.size.width, self.view.frame.size.height - topMargin)];
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + scrollExtension);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, scrollExtension);
     [self.view addSubview:self.scrollView];
     
     self.scoreLabels = [NSMutableArray new];
@@ -63,7 +63,9 @@ int numberOfCells = 3;
     [self addScoreView:(numberOfCells-1)];
     
     CGFloat scrollExtension = self.scoreLabels.count * heightOfScoreBlock;
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + scrollExtension);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, scrollExtension);
+    
+    NSLog(@"numberOfCells=%d", numberOfCells);
 }
 
 - (void)removeCell:(id)sender {
@@ -74,7 +76,9 @@ int numberOfCells = 3;
     }
     [self removeExtraCells];
     CGFloat scrollExtension = self.scoreLabels.count * heightOfScoreBlock;
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height + scrollExtension);
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, scrollExtension);
+    
+    NSLog(@"numberOfCells=%d", numberOfCells);
 }
 
 - (void)removeExtraCells {
